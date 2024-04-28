@@ -1,0 +1,64 @@
+<mat-toolbar>
+    <!--<button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <div class="menu-icon">
+        <mat-icon >menu</mat-icon>
+      </div>
+    </button>-->
+
+
+
+    <mat-toolbar-row class="d-flex">
+        <div class="menu">
+            <button mat-button (click)="toggleSidebar()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div class="row">
+            <ul class="icon-navbar">
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <div class="notif">
+                            <mat-icon>notifications_active</mat-icon>
+                        </div>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <!--listes des notification-->
+                        <mat-list >
+                            <mat-list-item *ngFor="let notification of notifications">{{notification.notificationObject}}</mat-list-item>
+                        </mat-list>
+                    </mat-menu>
+                </li>
+                <mat-divider [vertical]="true"></mat-divider>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu1">
+                        <div class="profile_details">
+                            <mat-icon>perm_identity</mat-icon>
+                            <div class="name_type">
+                                <span>{{ currentUser }}</span>
+                            </div>
+                        </div>
+                    </button>
+                    <mat-menu #menu1="matMenu" class="btn-account">
+                        <button mat-menu-item routerLink="/profil">
+                            <mat-icon>edit</mat-icon>Modifier mon profil
+                        </button>
+                        <button mat-menu-item routerLink="/register">
+
+                            <mat-icon>assignment_ind</mat-icon>utilisateurs
+
+                        </button>
+                        <button mat-menu-item (click)="logout()">
+                            <mat-icon>exit_to_app</mat-icon>
+                            Deconnexion
+                        </button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

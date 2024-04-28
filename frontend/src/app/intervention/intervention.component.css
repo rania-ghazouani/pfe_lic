@@ -1,0 +1,90 @@
+mat-drawer-content{
+    background-color:rgba(255, 255, 255, 0.918);
+    margin-left: 20px;
+    margin-top:70px;
+    
+}
+mat-drawer-container{
+    height: 100%;
+    
+  }
+
+  mat-drawer{
+    position: fixed;
+    height: 100%;
+    margin: 5px;
+    width: 200px;
+    border-right: none;
+    background: #414caf;
+    color: white;
+    border-radius: 12px;
+    box-sizing: initial;
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  
+ 
+mat-form-field {
+    margin-left: 30px;
+    margin-right: -13px;
+    
+
+}
+
+.section {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 40px;
+    margin-bottom: 7px;
+    
+}
+.Checkbox{
+    font-size: 15px;
+    margin-right: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+mat-label{
+    margin-right: 20px;
+    font-size: 18px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(19, 18, 18);
+    font-weight:bold;
+    
+}
+h1{
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(67, 68, 71);
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+.btn{
+   
+    margin-left: 30px;
+    
+}
+.box {
+    padding: 20px 20px 20px 20px;
+    background: rgb(238, 240, 241);
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    height: 100%;
+    
+    
+  }
+.btn-save{
+    width: 200px;
+    border-color: rgb(230, 107, 148);
+    margin-right: 10px;
+}
+.btn-check{
+    width: 200px;
+    border-color: rgb(20, 20, 167);
+}
+

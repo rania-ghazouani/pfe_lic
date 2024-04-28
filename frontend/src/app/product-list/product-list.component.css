@@ -1,0 +1,49 @@
+.mat-raised-button{
+    margin-top: 10px;
+    margin-left: 920px;
+}
+
+h1{
+    margin: 20px;
+}
+
+mat-drawer-container{
+    height: 100%;
+    
+  }
+
+  mat-drawer{
+    position: fixed;
+    height: 100%;
+    margin: 5px;
+    width: 200px;
+    border-right: none;
+    background: #414caf;
+    color: white;
+    border-radius: 12px;
+    box-sizing: initial;
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  
+  mat-drawer-content .content{
+    margin-top: 70px;
+    margin-left: 20px;
+    border-radius: 12px;
+  }
+
+
+table {
+  
+    width: 100%;
+    margin-top: 10px;
+    margin-left:30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  mat-form-field{
+    margin-left: 20px;
+    margin-top:0px
+  }

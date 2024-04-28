@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <form class="formulaire" [formGroup]="myForm">
+    <mat-form-field appearance="legacy" class="example-full-width">
+      <mat-label>nom</mat-label>
+      <input matInput placeholder="nom du produit" formControlName="productName" type="text">
+    </mat-form-field>
+    <span *ngIf="isValid('productName')">Ce champs est obligatoire</span>
+    <mat-form-field appearance="legacy" class="example-full-width">
+      <mat-label>description</mat-label>
+      <input matInput placeholder="description du produit" formControlName="productDescription" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="legacy" class="example-full-width">
+      <mat-label>quantité</mat-label>
+      <input matInput placeholder="quantité du produit" formControlName="productQuantity" type="number" step="1">
+    </mat-form-field>
+    <span *ngIf="isValid('productQuantity')">Ce champs est obligatoire</span>
+    <mat-form-field appearance="legacy" class="example-full-width">
+      <mat-label>prix</mat-label>
+      <input matInput placeholder="prix du produit" formControlName="productPrice" type="number">
+    </mat-form-field>
+    <span *ngIf="isValid('productPrice')">Ce champs est obligatoire</span>
+    <mat-form-field appearance="legacy" class="example-full-width">
+      <mat-label>minimum</mat-label>
+      <input matInput placeholder="minimum du produit" formControlName="productMin" type="number" step="1">
+    </mat-form-field>
+    <span *ngIf="isValid('productMin')">Ce champs est obligatoire</span>
+    <mat-form-field appearance="legacy" class="example-full-width">
+      <mat-label>code a bar</mat-label>
+      <input matInput placeholder="code a bar du produit" formControlName="prodEnteredId" type="text">
+    </mat-form-field>
+    <span *ngIf="isValid('prodEnteredId')">Ce champs est obligatoire</span>
+    <!--<mat-form-field appearance="legacy" class="example-full-width">
+    <mat-label>etat de produit</mat-label>
+    <mat-select formControlName="isArchived">
+      <mat-option>{{}}
+      </mat-option>
+    </mat-select>
+      <input matInput placeholder="code a bar du produit" formControlName="prodEnteredId" type="text">
+    </mat-form-field>
+    <span *ngIf="isValid('prodEnteredId')">Ce champs est obligatoire</span>-->
+    <mat-form-field appearance="legacy" class="example-full-width">
+    <mat-label>categorie</mat-label>
+      <mat-select formControlName="categoryId" (change)="changeCategory($event)">
+        <mat-option [value]="category.categoryId" *ngFor="let category of categories" >
+          {{ category.categoryName }}
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <span *ngIf="isValid('categoryId')">Ce champs est obligatoire</span>
+      <div style="text-align: center;">
+        {{successMessage}}
+      </div>
+
+    <button mat-stroked-button color="accent" class="btn-block" (click)="save(myForm.value)">{{actionBtn}}</button>
+  </form>
+</div>

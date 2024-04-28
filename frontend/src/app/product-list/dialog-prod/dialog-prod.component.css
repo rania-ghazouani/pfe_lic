@@ -1,0 +1,12 @@
+.example-full-width,
+.btn-block{
+    width: 100%;
+    color: #1111c9;
+}
+
+.mat-stroked-button {
+    border: 1px solid currentColor;
+    line-height: 54px;
+    background: #FFF7FA;
+    margin-top: 30px;
+  }

@@ -1,0 +1,38 @@
+<div class="grid-container">
+    <app-header (toggle)="sideBarToggler()"></app-header>
+    <mat-drawer-container>
+        <mat-drawer mode="side" [opened]="sideBarOpen">
+            <app-navigation></app-navigation>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div class="content mat-elevation-z8">
+                <h1 class="mat-h1">Dashboard</h1>
+                <mat-grid-list cols="2" rowHeight="350px">
+                    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+                        <!--ngFor permet de boucler sur un array et d'injecter les éléments dans le DOM(Document Model Objct)-->
+                        <mat-card class="dashboard-card">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    {{card.title}}
+                                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu"
+                                        aria-label="Toggle menu">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu" xPosition="before">
+                                        <button mat-menu-item>Expand</button>
+                                        <button mat-menu-item>Remove</button>
+                                        <!--Material supports the ability for an "mat-menu-item" to open a sub-menu-->
+                                    </mat-menu>
+                                    <!--"mat-menu" is a floating panel containing list of options.-->
+                                </mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content class="dashboard-card-content">
+                                <div>Card Content Here</div>
+                            </mat-card-content>
+                        </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

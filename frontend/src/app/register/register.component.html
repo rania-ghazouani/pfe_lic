@@ -1,0 +1,138 @@
+<div class="flex-container">
+  <app-header (toggle)="sideBarToggler()"></app-header>
+  <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-navigation></app-navigation>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="Inscription">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Inscription</mat-card-title>
+    </mat-card-header>
+    <form class="formulaire" [formGroup]="myForm">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" placeholder="Nom d'utilisateur" formControlName="userName">
+          <mat-icon matPrefix>face</mat-icon>
+        </mat-form-field>
+        <span *ngIf="isValid('userName')">Ce champs est obligatoire</span>
+        <mat-form-field class="example-full-width">
+          <input matInput type="email" placeholder="E-mail" formControlName="email">
+          <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+        <span *ngIf="isValid('email')">Ce champs doit etre remplis d'un mail</span>
+        <mat-form-field class="example-full-width">
+          <mat-label>Choisir le role</mat-label>
+          <mat-select formControlName="userType">
+            <mat-option [value]="userType" *ngFor="let userType of userType">{{userType}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matPrefix>supervisor_account</mat-icon>
+        </mat-form-field>
+        <span *ngIf="isValid('userType')">vous devez specifier le role de cet utilisateur</span>
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="mot de passe" formControlName="pwd"
+            [type]="hide ? 'password': 'text'">
+          <mat-icon matPrefix>lock</mat-icon>
+          <i class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility': 'visibility_off'}}</i>
+        </mat-form-field>
+        <span *ngIf="isValid('pwd')">Ce champs est obligatoire</span>
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" formControlName="cnfPassword" name="cnfPassword"
+            placeholder="confirmer mot de passe" [type]="hide ? 'password': 'text'">
+          <mat-icon matPrefix>lock</mat-icon>
+          <i class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility': 'visibility_off'}}</i>
+        </mat-form-field>
+        <span *ngIf="isValid('cnfPassword')">le mot de passe n'est pas identique</span>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" (click)="register()">Enregistrer</button>
+      <div style="text-align: center;">
+        {{successMessage}}
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+<div class="users">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Liste des utilisateurs</mat-card-title>
+    </mat-card-header>
+    <mat-form-field appearance="standard" class="filter">
+      <mat-label>Rechercher</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <!-- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      
+      <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row "> {{ row.userId }} </td>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+        <td mat-cell *matCellDef="let row"> {{ row.userName }} </td>
+      </ng-container>
+    
+     
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+        <td mat-cell *matCellDef="let row"> {{ row.email }} </td>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="userType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> userType </th>
+        <td mat-cell *matCellDef="let row"> {{ row.userType }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+         </th>
+        <td mat-cell *matCellDef="let row">  <button mat-icon-button (click)="deleteUser(row.userId)" >
+          <mat-icon>delete</mat-icon></button>   </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="colomnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: colomnsToDisplay;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    <!--<table>
+      <tr>
+        <td class="row">ID</td>
+        <td class="row">Nom d'utilisateur</td>
+        <td class="row">E-mail</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Ons</td>
+        <td>chebbions7@gmail.com</td>
+        <td> <button mat-mini-fab color="primary" aria-label="delete-btn"><mat-icon>delete</mat-icon></button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>chebbi</td>
+        <td>onschebbi14@yahoo.fr</td>
+        <td> <button mat-mini-fab color="primary" aria-label="delete-btn"><mat-icon>delete</mat-icon></button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Rania</td>
+        <td>raniaghaz8@gmail.com</td>
+        <td> <button mat-mini-fab color="primary" aria-label="delete-btn"><mat-icon>delete</mat-icon></button></td>
+      </tr>
+    </table> -->
+
+  </mat-card>
+</div>
+</mat-drawer-content>
+</mat-drawer-container>
+</div>

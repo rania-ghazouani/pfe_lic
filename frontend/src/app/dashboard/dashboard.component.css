@@ -1,0 +1,56 @@
+.grid-container {
+    margin: 10px;
+    
+  }
+  .dashboard-card {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    bottom: 10px;
+  }
+  
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  
+  .dashboard-card-content {
+    text-align: center;
+  }
+  h1{
+    color: black;
+    margin: 50px;
+  }
+  mat-grid-list{
+    margin-top:-20px;
+  }
+
+  mat-drawer-container{
+    height: 100%;
+    
+  }
+
+  mat-drawer{
+    position: fixed;
+    height: 100%;
+    margin: 5px;
+    width: 200px;
+    border-right: none;
+    background: #414caf;
+    color: white;
+    border-radius: 12px;
+    box-sizing: initial;
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  
+  mat-drawer-content .content{
+    margin-top: 70px;
+    margin-left: 20px;
+    border-radius: 12px;
+  }
+
+  

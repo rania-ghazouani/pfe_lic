@@ -1,0 +1,76 @@
+<app-header (toggle)="sideBarToggler()"></app-header>
+    <mat-drawer-container>
+        <mat-drawer mode="side" [opened]="sideBarOpen">
+            <app-navigation></app-navigation>
+        </mat-drawer>
+        <mat-drawer-content>
+          <mat-card class="box">
+            <mat-card-header>
+              <h1>Fiche d'intervention</h1>
+            </mat-card-header>
+            <mat-form-field appearance="fill">
+              <mat-label>Atelier</mat-label>
+              <input matInput class="boxes">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Demandeur</mat-label>
+              <input matInput class="boxes">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Ligne</mat-label>
+              <input matInput class="boxes">
+            </mat-form-field>
+            <br>
+            <mat-form-field color="accent" appearance="fill">
+              <mat-label>Date</mat-label>
+              <input matInput [matDatepicker]="myDatePicker">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #myDatePicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Heure Apparition panne</mat-label>
+              <input matInput > 
+            </mat-form-field>
+            <section class="section">
+              <mat-label>Production</mat-label>
+              <mat-checkbox class="Checkbox">Arret</mat-checkbox>
+              <mat-checkbox class="Checkbox" >Dégradée</mat-checkbox>
+            </section>
+            <mat-form-field appearance="fill">
+              <mat-label>Description du problème</mat-label>
+              <textarea matInput placeholder="Message d erreur"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Action</mat-label>
+              <textarea matInput ></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Heure d'appel service support</mat-label>
+              <input matInput > 
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Heure Validation</mat-label>
+              <input matInput > 
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Intervenant</mat-label>
+              <input matInput > 
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label >Matricule</mat-label>
+              <input matInput > 
+            </mat-form-field>
+            <br>
+            <div class="btn">
+              <button mat-stroked-button color="accent" class="btn-save">Enregistrer</button>
+              <button mat-stroked-button color="primary" (click)="openDialog()" class="btn-check">voir les fichiers </button>
+            </div>
+          </mat-card>
+    </mat-drawer-content>
+</mat-drawer-container>
+        
+
+    

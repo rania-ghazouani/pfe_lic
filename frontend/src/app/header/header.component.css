@@ -1,0 +1,44 @@
+mat-toolbar{
+    position: fixed;
+    background-color:#414caf ;
+    margin-top: -7px;
+    width: 100%;
+    border-radius: 15px;
+    z-index: 100;
+  }
+  /*position: sticky; is positioned based on the user's scroll position*/
+  ul{
+    display:flex;
+    margin-left: 920px;
+  }
+  li{
+    list-style: none;
+  }
+  mat-toolbar .profile_details{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    
+  }
+  .profile_details mat-icon{
+    font-size: 35px;
+    margin-right: 15px;
+    color: #ffffff;
+  }
+  .name_type{
+    font-size: 17px;
+    color: #ffffff;
+  }
+  .notif mat-icon{
+    font-size: 25px;
+    color: #ffffff;
+    margin-top: 11px;
+  }
+  .menu-icon mat-icon{
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+  

@@ -1,0 +1,113 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  userId        Int            @id @default(autoincrement())
+  userName      String?
+  email         String         @unique
+  pwd           String
+  userType      String
+  resetLink     String?
+  products      product[]
+  requests      request[]
+  response      response?
+  interventions intervention[]
+  //tokens token[]
+}
+
+model product {
+  productId          Int              @id @default(autoincrement())
+  prodEnteredId      String           @unique
+  productName        String
+  user               user?            @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+  userId             Int?
+  productDescription String?
+  productQuantity    Int
+  productPrice       Float
+  productMin         Int
+  isArchived         Boolean?         @default(false)
+  creationDate       DateTime         @default(now())
+  updateDate         DateTime         @updatedAt
+  category           categoryProduct? @relation(fields: [categoryId], references: [categoryId], onDelete: NoAction, onUpdate: NoAction)
+  categoryId         Int?
+  notifications      notification[]
+  requests           request[]
+  interventions      intervention[]
+}
+
+model categoryProduct {
+  categoryId   Int       @id @default(autoincrement())
+  categoryName String    @unique
+  products     product[]
+}
+
+model request {
+  requestId       Int       @id @default(autoincrement())
+  requestDate     DateTime
+  note            String
+  transactionType String
+  response        response?
+  user            user      @relation(fields: [userId], references: [userId])
+  userId          Int
+  product         product   @relation(fields: [productId], references: [productId])
+  productId       Int
+}
+
+model response {
+  responseId   Int      @id @default(autoincrement())
+  responseDate DateTime
+  validation   String
+  user         user     @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+  userId       Int      @unique
+  request      request  @relation(fields: [requestId], references: [requestId], onDelete: NoAction, onUpdate: NoAction)
+  requestId    Int      @unique
+}
+
+model notification {
+  notificationId     Int      @id @default(autoincrement())
+  notificationObject String
+  notificationDate   DateTime @default(now())
+  seen               Boolean? @default(false)
+  product     product? @relation(fields: [productId], references: [productId], onDelete: NoAction, onUpdate: NoAction)
+  productId   Int?
+}
+
+model intervention {
+  interventionId           Int       @id @default(autoincrement())
+  atelier                  String?
+  demandeur                user      @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+  userId                   Int
+  ligne                    String?
+  date                     DateTime  @default(now())
+  production               String?
+  descriptionProbleme      String?
+  action                   String?
+  heureAppelServiceSupport DateTime?
+  heureValidation          DateTime?
+  intervenant              String?
+  product                  product   @relation(fields: [productId], references: [productId])
+  productId                Int
+}
+
+// model token{
+//tokenId             Int         @id  @default(autoincrement())
+//token               String      @db.VarChar(400)
+//isBlacklisted       Boolean
+//isRefresh           Boolean
+//assignedRefresh     token?      @relation("assigedRefresh", fields: [assignedId], references: [tokenId], onDelete: NoAction, onUpdate: NoAction)
+//assignedId          Int?        //refers to id of refresh token with is paired with actual token
+//assignee            token?      @relation("assigedRefresh")
+//user                user?       @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+//userId              Int?
+
+//@@unique([token, assignedId])
+//}

@@ -1,0 +1,23 @@
+<h1>SAGEMCOM</h1>
+<mat-divider></mat-divider>
+<img class="image" [src]="resetBg">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="left">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Veuillez saisir votre adresse mail</mat-card-title>
+    </mat-card-header>
+    <form class="formulaire" [formGroup]="myForm">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput type="email" placeholder="E-mail" formControlName="email" name="email">
+          <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+        <span *ngIf="isValid('email')">Ce champs doit etre remplis d'un mail</span>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" (click)="forgot()">Envoyer</button>
+      <div style="text-align: center;">
+        {{successMessage}}
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,103 @@
+html,
+body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #ffffff;
+}
+
+
+.box {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 100px;
+  padding: 20px 20px 20px 50px;
+  background: #f0f0f3;
+  border-radius: 10px;
+  height: 480px;
+
+}
+.Inscription {
+  width: 35%;
+  
+}
+.users{
+width:62%;
+height: 100%;
+margin-left: 400px;
+margin-top: -620px;
+}
+
+ mat-card-title {
+  font-size: 90px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  margin-left: 60px;
+}
+ .mat-stroked-button {
+  border: 1px solid currentColor;
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  font-size: 17px;
+}
+.row{
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+}
+/*table, th , td {
+  
+  border-collapse: collapse;
+  padding-left: 25px;
+  margin-top: 20px;
+  text-align: left;
+  margin-right: 30px;
+}*/
+
+table{
+  background: #f0f0f3;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%
+}
+.searchBox{
+  height: 32px;
+  width: 90%;
+  align-items: center;
+  margin:10px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+mat-drawer-container{
+  height: 100%;
+  
+}
+
+mat-drawer{
+  position: fixed;
+  height: 100%;
+  margin: 5px;
+  width: 200px;
+  border-right: none;
+  background: #414caf;
+  color: white;
+  border-radius: 12px;
+  box-sizing: initial;
+  margin-top: 80px;
+  padding: 10px;
+}
+
+
+mat-drawer-content .content{
+  margin-top: 120px;
+  margin-left: 20px;
+  border-radius: 12px;
+}
+
+.filter{
+  width: 50%;
+  margin-left: 20px;
+}

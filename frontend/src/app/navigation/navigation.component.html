@@ -1,0 +1,31 @@
+
+     <!--"mat-sidenav","#drawer" these are designed to add side content to a small section of your app -->
+    <!--#drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        When you resize the browser and when browser width matches with handset 
+     (mobile phone screen) width isHandset$ sets to true. ! (isHandset$ | async)
+      in turn sets 'opened' attribute of sidenav drawer to false and collapses the sidenav drawer.-->
+        <h1>SAGEMCOM</h1>
+        <mat-nav-list class="list">
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="#">
+                <mat-icon>home</mat-icon>Acceuil
+            </a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/product-list">
+                <mat-icon>grid_on</mat-icon>Gestionnaire des produits
+            </a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+                <mat-icon>pie_chart</mat-icon>Dashboard
+            </a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/intervention">
+                <mat-icon>trending_up</mat-icon>Intervention
+            </a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="#">
+                <mat-icon>history</mat-icon>Historique
+            </a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="#">
+                <mat-icon>inbox</mat-icon>Archive
+            </a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="#">
+                <mat-icon>supervised_user_circle</mat-icon>à propos de nous
+            </a>
+        </mat-nav-list>

@@ -1,0 +1,34 @@
+<h1>SAGEMCOM</h1>
+<mat-divider></mat-divider>
+<img class="image" [src]="resetBg">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="left">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Veuillez saisir votre nouveau mot de passe</mat-card-title>
+    </mat-card-header>
+    <form class="formulaire" [formGroup]="myForm">
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" formControlName="pwd" name="password" placeholder="nouveau mot de passe"
+            [type]="hide ? 'password': 'text'">
+          <mat-icon matPrefix>lock</mat-icon>
+          <i class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility': 'visibility_off'}}</i>
+        </mat-form-field>
+        <span *ngIf="isValid('pwd')">Ce champs est obligatoire</span>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" formControlName="cnfPassword" name="cnfPassword"
+            placeholder="confirmer votre nouveau mot de passe" [type]="hide ? 'password': 'text'">
+          <mat-icon matPrefix>lock</mat-icon>
+          <i class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility': 'visibility_off'}}</i>
+        </mat-form-field>
+        <span *ngIf="isValid('cnfPassword')">le mot de passe n'est pas identique</span>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" (click)="reset(resetLink)">Envoyer</button>
+      <div style="text-align: center;">
+        {{successMessage}}
+      </div>
+    </form>
+  </mat-card>
+</div>

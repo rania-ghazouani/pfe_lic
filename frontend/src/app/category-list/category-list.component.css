@@ -1,0 +1,22 @@
+table {
+  
+    width: 90%;
+    margin-top: 10px;
+    margin-left:30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  mat-form-field{
+    margin-left: 20px;
+    margin-top:0px
+  }
+
+  .mat-raised-button{
+    margin-top: 10px;
+    margin-left: 920px;
+}
+
+h1{
+    margin: 20px;
+}

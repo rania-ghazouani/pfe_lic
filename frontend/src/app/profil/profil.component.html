@@ -1,0 +1,68 @@
+<div class="flex-container">
+    <app-header (toggle)="sideBarToggler()"></app-header>
+    <mat-drawer-container>
+        <mat-drawer mode="side" [opened]="sideBarOpen">
+            <app-navigation></app-navigation>
+        </mat-drawer>
+        <mat-drawer-content>
+
+            <div class="flex-child-info">
+
+                <mat-card class="box">
+                    <mat-card-header>
+                        <img class="image" [src]="avatar">
+                    </mat-card-header>
+                    <h2>
+                        {{ userName }}
+                    </h2>
+                    <h3>{{ userType }}</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <mat-icon>email</mat-icon>E-mail
+                                <span><b>{{email}}</b></span>
+                            </td>
+                            <td>
+                                <mat-icon>perm_identity</mat-icon>ID
+                                <span><b>{{userId}}</b></span>
+                            </td>
+                        </tr>
+                    </table>
+
+                </mat-card>
+            </div>
+            <div class="flex-child-modif">
+                <mat-card class="box">
+                    <form class="example-form" [formGroup]="myForm">
+                        <mat-card-content>
+                            <h2>Modifier mon profil</h2>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Nom d'utilisateur" formControlName="userName">
+                                <mat-icon matPrefix>perm_identity</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="password" placeholder="mot de passe" formControlName="pwd"
+                                    [type]="hide ? 'password': 'text'">
+                                <mat-icon matPrefix>lock</mat-icon>
+                                <i class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility':
+                                    'visibility_off'}}</i>
+                            </mat-form-field>
+                            <span *ngIf="isValid('pwd')">mot de passe faible, veuillez saisir un mot de passe plus long et sure</span>
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="password" formControlName="cnfPassword" name="cnfPassword"
+                                    placeholder="confirmer mot de passe" [type]="hide ? 'password': 'text'">
+                                <mat-icon matPrefix>lock</mat-icon>
+                                <i class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility':
+                                    'visibility_off'}}</i>
+                            </mat-form-field>
+                            <span *ngIf="isValid('cnfPassword')">le mot de passe n'est pas identique</span>
+                        </mat-card-content>
+                        <button mat-stroked-button color="accent" class="btn-block" (click)="updateData()">Sauvegarder</button>
+                    </form>
+
+                </mat-card>
+            </div>
+
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

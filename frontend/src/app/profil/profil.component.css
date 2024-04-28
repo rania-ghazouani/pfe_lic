@@ -1,0 +1,103 @@
+html,
+body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.image{
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+  
+
+.flex-child-info {
+    margin-right: 40px;
+    margin-left: 35px;
+    margin-top: 100px;
+    width: 370px;
+    
+}
+.flex-child-modif{
+  width:570px;
+  margin-left: 510px;
+  margin-top: -500px;
+}
+
+
+
+.box {
+  position: relative;
+  padding: 50px 50px 50px 50px;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  height: 400px;
+  
+}
+table, th , td {
+  border: 1px solid rgba(128, 128, 128, 0.534);
+  border-collapse: collapse;
+  padding: 5px;
+  margin-left: -20px;
+  text-align: center;
+
+}
+h2{
+  text-align: center;
+  margin-left: 15px;
+  font-size: 30px;
+  margin-bottom: -2px;
+
+}
+h3{
+  text-align: center;
+  margin-left: 15px;
+  font-size: 20px;
+  margin-top: 3px;
+  
+}
+
+mat-form-field {
+  width: 70%;
+  margin-left: 70px;
+  display: block;
+  font-size: 20px;
+  margin-top: 20px
+}
+
+
+.mat-stroked-button {
+  border: 1px solid currentColor;
+  line-height: 54px;
+  background: #FFF7FA;
+  margin-top: 20px;
+  margin-left: 200px;
+  
+}
+
+mat-drawer-container{
+  height: 100%;
+  
+}
+
+mat-drawer{
+  position: fixed;
+  height: 100%;
+  margin: 5px;
+  width: 200px;
+  border-right: none;
+  background: #414caf;
+  color: white;
+  border-radius: 12px;
+  box-sizing: initial;
+  margin-top: 80px;
+  padding: 10px;
+}
+
+
+mat-drawer-content .content{
+  margin-top: 70px;
+  margin-left: 20px;
+  border-radius: 12px;
+}
